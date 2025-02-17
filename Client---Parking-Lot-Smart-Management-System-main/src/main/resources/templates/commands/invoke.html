@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Invoke Command</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="container">
+		<h2>Invoke Command</h2>
+		<form th:action="@{/commands/invoke}" method="post" th:object="${command}">
+			<div class="form-group">
+				<label>Command:</label>
+				<input type="text" th:field="*{command}" required>
+			</div>
+
+			<div class="form-group">
+				<label>Target Object System ID:</label>
+				<input type="text" th:field="*{targetObject.objectId.systemID}" required>
+			</div>
+
+			<div class="form-group">
+				<label>Target Object ID:</label>
+				<input type="text" th:field="*{targetObject.objectId.id}" required>
+			</div>
+
+			<div class="form-group">
+				<label>Invoker System ID:</label>
+				<input type="text" th:field="*{invokedBy.userId.systemID}" required>
+			</div>
+
+			<div class="form-group">
+				<label>Invoker Email:</label>
+				<input type="email" th:field="*{invokedBy.userId.email}" required>
+			</div>
+
+			<div class="form-group">
+				<label>Command Attributes (JSON):</label>
+				<textarea name="commandAttributesJson" rows="4"></textarea>
+			</div>
+
+			<button type="submit">Invoke Command</button>
+		</form>
+	</div>
+</body>
+
+</html>

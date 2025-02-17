@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Search Results</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="container">
+		<h2>Search Results</h2>
+
+		<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+
+		<table class="table" th:if="${objects != null and !objects.empty}">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Alias</th>
+					<th>Status</th>
+					<th>Active</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="object : ${objects}">
+					<td th:text="${object.type}"></td>
+					<td th:text="${object.alias}"></td>
+					<td th:text="${object.status}"></td>
+					<td th:text="${object.active}"></td>
+					<td>
+						<a th:href="@{/objects/update/{systemID}/{id}(
+					            systemID=${object.objectId.systemID},
+					            id=${object.objectId.id},
+					            userSystemID=${object.createdBy.userId.systemID},
+					            userEmail=${object.createdBy.userId.email})}" class="button update-button">Update</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div th:if="${objects == null or objects.empty}">
+			<p>No objects found matching your search criteria.</p>
+		</div>
+
+		<div style="margin-top: 20px;">
+			<a th:href="@{/objects/search}" class="button">New Search</a>
+		</div>
+	</div>
+</body>
+
+</html>

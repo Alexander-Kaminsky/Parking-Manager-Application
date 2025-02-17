@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Update User</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="form-container">
+		<h2>Update User</h2>
+		<form th:action="@{/users/update/{systemID}/{userEmail}(systemID=${systemID},userEmail=${userEmail})}"
+			th:object="${user}" method="post">
+			<!-- Hidden fields for userId -->
+			<input type="hidden" th:field="*{userId.systemID}" />
+			<input type="hidden" th:field="*{userId.email}" />
+
+			<div class="form-container">
+				<label>Username:</label>
+				<input type="text" th:field="*{username}" required />
+			</div>
+			<div class="form-container">
+				<label>Role:</label>
+				<select th:field="*{role}">
+					<option value="ADMIN">ADMIN</option>
+					<option value="OPERATOR">OPERATOR</option>
+					<option value="END_USER">END_USER</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Avatar:</label>
+				<input type="text" th:field="*{avatar}" />
+			</div>
+			<div>
+				<button type="submit" class="submit-button">Update User</button>
+			</div>
+			<div th:if="${error}" th:text="${error}" class="error-message"></div>
+		</form>
+		<a th:href="@{/users/login}">Back to Login</a>
+</body>
+
+</html>

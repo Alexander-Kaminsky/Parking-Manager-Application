@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Object Details</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="details-container">
+		<h2>Object Details</h2>
+
+		<div th:if="${message}" th:text="${message}" class="success-message"></div>
+
+		<div th:if="${object}">
+			<div class="detail-item">
+				<span class="detail-label">Type:</span>
+				<span th:text="${object.type}"></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-label">Alias:</span>
+				<span th:text="${object.alias}"></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-label">Status:</span>
+				<span th:text="${object.status}"></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-label">Active:</span>
+				<span th:text="${object.active}"></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-label">Location:</span>
+				<span th:text="${object.location.lat + ', ' + object.location.lng}"></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-label">Created By:</span>
+				<span th:text="${object.createdBy.userId.email}"></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-label">Object Details:</span>
+				<span th:text="${object.objectDetails}"></span>
+			</div>
+		</div>
+
+		<div class="button-container">
+			<a th:href="@{/objects/update/{systemID}/{id}(
+		               systemID=${object.objectId.systemID},
+		               id=${object.objectId.id},
+		               userSystemID=${object.createdBy.userId.systemID},
+		               userEmail=${object.createdBy.userId.email})}" class="button update-button">Update Object</a>
+			<a th:href="@{/objects/manage}" class="button">Back to Objects</a>
+		</div>
+		<div style="margin-top: 20px;">
+			<a th:href="@{/objects/search}" class="button">New Search</a>
+		</div>
+	</div>
+</body>
+
+</html>

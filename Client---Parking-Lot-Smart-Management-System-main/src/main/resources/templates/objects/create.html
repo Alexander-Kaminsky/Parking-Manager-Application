@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Object</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="form-container">
+        <h2>Create New Object</h2>
+        <form th:action="@{/objects/create}" th:object="${object}" method="post">
+            <div class="form-group">
+                <label>Type:</label>
+                <input type="text" th:field="*{type}" required />
+            </div>
+            <div class="form-group">
+                <label>Alias:</label>
+                <input type="text" th:field="*{alias}" required />
+            </div>
+			<div class="form-group">
+			    <label>Status:</label>
+			    <select th:field="*{status}" required>
+			        <option value="AVAILABLE">Available</option>
+			        <option value="OCCUPIED">Occupied</option>
+			    </select>
+			</div>
+			<div class="form-group">
+			    <label>Location:</label>
+			    <div style="display: flex; gap: 10px;">
+			        <div style="flex: 1;">
+			            <label>Latitude:</label>
+			            <input type="number" step="0.000001" th:field="*{location.lat}" required />
+			        </div>
+			        <div style="flex: 1;">
+			            <label>Longitude:</label>
+			            <input type="number" step="0.000001" th:field="*{location.lng}" required />
+			        </div>
+			    </div>
+			</div>
+			<div class="form-group">
+			<label>Active:</label>
+			<select th:field="*{active}" required>
+			    <option value="true">true</option>
+			    <option value="false">false</option>
+			</select>
+			</div>
+			<div class="form-group">
+			    <label>Created By:</label>
+			    <div style="display: flex; gap: 10px;">
+			        <div style="flex: 1;">
+			            <label>System ID:</label>
+			            <input type="text" th:field="*{createdBy.userId.systemID}" required />
+			        </div>
+			        <div style="flex: 1;">
+			            <label>Email:</label>
+			            <input type="email" th:field="*{createdBy.userId.email}" required />
+			        </div>
+			    </div>
+			</div>
+			<div class="form-group">
+			    <label>Object Details (JSON format)</label>
+			    <textarea th:field="*{objectDetailsJson}" class="form-control" rows="3" 
+			              placeholder='{"key": "value"}'></textarea>
+			</div>
+            <!-- Add other fields -->
+            <button type="submit" class="submit-button">Create Object</button>
+        </form>
+    </div>
+</body>
+</html>

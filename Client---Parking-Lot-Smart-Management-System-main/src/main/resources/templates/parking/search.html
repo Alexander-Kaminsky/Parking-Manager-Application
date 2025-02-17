@@ -1,0 +1,19 @@
+<!-- end_user_dashboard.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Parking Objects</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="form-container">
+    <h2>Parking Management</h2>
+    <a th:href="@{/objects/search}" class="button search-button">Search Parking</a>
+    <a th:href="@{/objects/update}" class="button update-button">Update Parking</a>
+    
+</div>
+</body>
+</html>

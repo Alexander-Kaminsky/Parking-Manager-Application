@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Users List</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="container">
+		<h2>Users List</h2>
+
+		<table class="table" th:if="${users != null and !users.empty}">
+			<thead>
+				<tr>
+					<th>Email</th>
+					<th>Role</th>
+					<th>Username</th>
+					<th>Avatar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.userId.email}"></td>
+					<td th:text="${user.role}"></td>
+					<td th:text="${user.username}"></td>
+					<td th:text="${user.avatar}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div th:if="${users == null or users.empty}">
+			<p>No users found.</p>
+		</div>
+
+		<a th:href="@{/admin}" class="button">Back to Dashboard</a>
+	</div>
+</body>
+
+</html>

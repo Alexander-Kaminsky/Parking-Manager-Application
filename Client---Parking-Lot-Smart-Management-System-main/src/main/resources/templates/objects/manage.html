@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Objects</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="form-container">
+        <h2>Object Management</h2>
+        <a th:href="@{/objects/create}" class="button">Create New Object</a>
+        <a th:href="@{/objects/search}" class="button">Get / Search Objects</a>
+		<a th:href="@{/objects/update}" class="button">Update Object</a>
+    </div>
+</body>
+</html>

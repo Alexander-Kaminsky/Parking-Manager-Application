@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Search Objects</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="form-container">
+		<h2>Search Objects</h2>
+		<div class="search-section">
+			<h3>Get Single Object</h3>
+			<form th:action="@{/objects/view}" method="get">
+				<div class="form-group">
+					<label>System ID:</label>
+					<input type="text" name="systemID" required />
+				</div>
+				<div class="form-group">
+					<label>Object ID:</label>
+					<input type="text" name="id" required />
+				</div>
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<button type="submit" class="submit-button">Get Object</button>
+			</form>
+		</div>
+
+		<div class="search-section">
+			<h3>Get All Objects</h3>
+			<form th:action="@{/objects/list}" method="get">
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<div class="form-group">
+					<label>Page Size:</label>
+					<input type="number" name="size" value="10" min="1" />
+				</div>
+				<div class="form-group">
+					<label>Page Number:</label>
+					<input type="number" name="page" value="0" min="0" />
+				</div>
+				<button type="submit" class="submit-button">Get All Objects</button>
+			</form>
+		</div>
+
+		<div class="search-section">
+			<h3>Search by Type</h3>
+			<form th:action="@{/objects/search/byType}" method="get">
+				<div class="form-group">
+					<label>Type:</label>
+					<input type="text" name="type" required />
+				</div>
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<div class="form-group">
+					<label>Page Size:</label>
+					<input type="number" name="size" value="10" min="1" />
+				</div>
+				<div class="form-group">
+					<label>Page Number:</label>
+					<input type="number" name="page" value="0" min="0" />
+				</div>
+				<button type="submit" class="submit-button">Search by Type</button>
+			</form>
+		</div>
+
+		<div class="search-section">
+			<h3>Search by Type and Status</h3>
+			<form th:action="@{/objects/search/byTypeAndStatus}" method="get">
+				<div class="form-group">
+					<label>Type:</label>
+					<input type="text" name="type" required />
+				</div>
+				<div class="form-group">
+				    <label>Status:</label>
+				    <select name="status" required>
+				        <option value="AVAILABLE">Available</option>
+				        <option value="OCCUPIED">Occupied</option>
+				    </select>
+				</div>
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<div class="form-group">
+					<label>Page Size:</label>
+					<input type="number" name="size" value="10" min="1" />
+				</div>
+				<div class="form-group">
+					<label>Page Number:</label>
+					<input type="number" name="page" value="0" min="0" />
+				</div>
+				<button type="submit" class="submit-button">Search by Type and Status</button>
+			</form>
+		</div>
+
+		<div class="search-section">
+			<h3>Search by Alias</h3>
+			<form th:action="@{/objects/search/byAlias}" method="get">
+				<div class="form-group">
+					<label>Alias:</label>
+					<input type="text" name="alias" required />
+				</div>
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<div class="form-group">
+					<label>Page Size:</label>
+					<input type="number" name="size" value="10" min="1" />
+				</div>
+				<div class="form-group">
+					<label>Page Number:</label>
+					<input type="number" name="page" value="0" min="0" />
+				</div>
+				<button type="submit" class="submit-button">Search by Alias</button>
+			</form>
+		</div>
+
+		<div class="search-section">
+			<h3>Search by Alias Pattern</h3>
+			<form th:action="@{/objects/search/byAliasPattern}" method="get">
+				<div class="form-group">
+					<label>Pattern:</label>
+					<input type="text" name="pattern" required />
+				</div>
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<div class="form-group">
+					<label>Page Size:</label>
+					<input type="number" name="size" value="10" min="1" />
+				</div>
+				<div class="form-group">
+					<label>Page Number:</label>
+					<input type="number" name="page" value="0" min="0" />
+				</div>
+				<button type="submit" class="submit-button">Search by Alias Pattern</button>
+			</form>
+		</div>
+
+		<div class="search-section">
+			<h3>Search by Location</h3>
+			<form th:action="@{/objects/search/byLocation}" method="get">
+				<div class="form-group">
+					<label>Latitude:</label>
+					<input type="number" step="0.000001" name="lat" required />
+				</div>
+				<div class="form-group">
+					<label>Longitude:</label>
+					<input type="number" step="0.000001" name="lng" required />
+				</div>
+				<div class="form-group">
+					<label>Distance:</label>
+					<input type="number" step="0.01" name="distance" required />
+				</div>
+				<div class="form-group">
+					<label>Units:</label>
+					<select name="units">
+						<option value="NEUTRAL">NEUTRAL</option>
+						<option value="KILOMETERS">KILOMETERS</option>
+						<option value="MILES">MILES</option>
+					</select>
+				</div>
+				<div class="form-group">
+				           <label>Search Method:</label>
+				           <select name="useCircle">
+				               <option value="false">Box Search</option>
+				               <option value="true">Circle Search</option>
+				           </select>
+				       </div>
+				<div class="form-group">
+					<label>User System ID:</label>
+					<input type="text" name="userSystemID" required />
+				</div>
+				<div class="form-group">
+					<label>User Email:</label>
+					<input type="email" name="userEmail" required />
+				</div>
+				<div class="form-group">
+					<label>Page Size:</label>
+					<input type="number" name="size" value="10" min="1" />
+				</div>
+				<div class="form-group">
+					<label>Page Number:</label>
+					<input type="number" name="page" value="0" min="0" />
+				</div>
+				<button type="submit" class="submit-button">Search by Location</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

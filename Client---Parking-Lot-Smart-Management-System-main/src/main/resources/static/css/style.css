@@ -1,0 +1,274 @@
+/* Navigation */
+.nav-bar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    float: left;
+}
+
+.nav-bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Containers */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.details-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f5f5f5;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    width: auto;
+    min-width: 100px;
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Button Variants */
+.update-button {
+    background-color: #007bff;
+}
+
+.update-button:hover {
+    background-color: #0056b3;
+}
+
+.back-button {
+    background-color: #6c757d;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+.search-button {
+    background-color: #17a2b8;
+}
+
+.search-button:hover {
+    background-color: #138496;
+}
+
+.warning {
+    background-color: #dc3545;
+}
+
+.warning:hover {
+    background-color: #c82333;
+}
+
+/* Button Containers */
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-container .button {
+    width: auto;
+    min-width: 120px;
+    margin: 0;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Messages */
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border-radius: 4px;
+}
+
+/* Details */
+.detail-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #666;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #f5f5f5;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Links */
+.links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.links a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Search Sections */
+.search-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-section:last-child {
+    border-bottom: none;
+}
+
+/* Utility Classes */
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+    }
+    
+    .button-container .button {
+        width: 100%;
+    }
+    
+    .button-row {
+        flex-direction: column;
+    }
+    
+    .table {
+        font-size: 14px;
+    }
+    
+    .table .button {
+        padding: 6px 10px;
+        min-width: 80px;
+    }
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}

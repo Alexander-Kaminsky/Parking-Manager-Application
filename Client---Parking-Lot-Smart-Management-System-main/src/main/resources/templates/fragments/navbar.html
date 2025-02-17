@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="navbar" class="nav-bar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/users/register}">Register</a>
+        <a th:href="@{/users/login}">Login</a>
+        <a th:href="@{/users/update}">Update Profile</a>
+    </div>
+</body>
+</html>

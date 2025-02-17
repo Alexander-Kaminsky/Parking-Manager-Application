@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Command Result</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    
+    <div class="container">
+        <h2>Command Result</h2>
+        <div th:if="${result}" class="result-container">
+            <pre th:text="${result}"></pre>
+        </div>
+        <a th:href="@{/commands/invoke}" class="button">Invoke Another Command</a>
+    </div>
+</body>
+</html>

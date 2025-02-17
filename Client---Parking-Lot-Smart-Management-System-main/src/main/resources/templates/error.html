@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Error</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+	
+	<div class="error-container">
+		<h2>Error</h2>
+		<div class="error-message" th:text="${error}">Error message here</div>
+		<a th:href="@{/}" class="button">Back to Home</a>
+	</div>
+</body>
+
+</html>

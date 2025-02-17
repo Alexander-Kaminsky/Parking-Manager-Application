@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>User Details</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="details-container">
+		<h2>User Details</h2>
+
+		<div th:if="${message}" th:text="${message}" class="success-message"></div>
+
+		<div th:if="${user}">
+			<div class="detail-group">
+				<span class="detail-label">Email:</span>
+				<span class="detail-value" th:text="${user.userId.email}"></span>
+			</div>
+
+			<div class="detail-group">
+				<span class="detail-label">System ID:</span>
+				<span class="detail-value" th:text="${user.userId.systemID}"></span>
+			</div>
+
+			<div class="detail-group">
+				<span class="detail-label">Username:</span>
+				<span class="detail-value" th:text="${user.username}"></span>
+			</div>
+
+			<div class="detail-group">
+				<span class="detail-label">Role:</span>
+				<span class="detail-value" th:text="${user.role}"></span>
+			</div>
+
+			<div class="detail-group">
+				<span class="detail-label">Avatar:</span>
+				<span class="detail-value" th:text="${user.avatar}"></span>
+			</div>
+
+			<div class="button-container">
+				<a th:href="@{/users/update/{systemID}/{userEmail}(systemID=${user.userId.systemID},userEmail=${user.userId.email})}"
+					class="button update-button">
+					Update User Information
+				</a>
+				<a th:href="@{/dashboard(systemID=${user.userId.systemID}, userEmail=${user.userId.email})}" class="button go-to-dashboard">
+				    Go to Dashboard
+				</a>
+				<a th:href="@{/}" class="button back-button">
+					Back to Home Page
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Commands List</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<div class="container">
+		<h2>Commands List</h2>
+
+		<table class="table" th:if="${commands != null and !commands.empty}">
+			<thead>
+				<tr>
+					<th>Command</th>
+					<th>Target Object</th>
+					<th>Invoked By</th>
+					<th>Timestamp</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="command : ${commands}">
+					<td th:text="${command.command}"></td>
+					<td th:text="${command.targetObject.objectId.id}"></td>
+					<td th:text="${command.invokedBy.userId.email}"></td>
+					<td th:text="${command.invocationTimestamp}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div th:if="${commands == null or commands.empty}">
+			<p>No commands found.</p>
+		</div>
+
+		<a th:href="@{/admin}" class="button">Back to Dashboard</a>
+	</div>
+</body>
+
+</html>

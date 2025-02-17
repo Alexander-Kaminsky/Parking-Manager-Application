@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Parking Search Results</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container">
+        <h2>Search Results</h2>
+        <table class="table" th:if="${objects != null and !objects.empty}">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Alias</th>
+                    <th>Status</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="object : ${objects}">
+                    <td th:text="${object.type}"></td>
+                    <td th:text="${object.alias}"></td>
+                    <td th:text="${object.status}"></td>
+                    <td th:text="${object.location.lat + ', ' + object.location.lng}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div th:if="${objects == null or objects.empty}">
+            <p>No available parking spots found.</p>
+        </div>
+    </div>
+</body>
+
+</html>

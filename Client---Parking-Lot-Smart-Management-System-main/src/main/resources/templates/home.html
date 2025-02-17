@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Parking Lot Management System</title>
+	<link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+	<!-- Welcome Section -->
+	   <div class="welcome-section">
+	       <h1>Welcome to Parking Lot Management System</h1>
+	       <p>Here you can register or login, after that you can:</p>
+	       <p>
+	           ✓ View available parking spaces<br>
+	           ✓ Reserve a space ahead<br>
+	           ✓ Cancel reservations if needed
+	       </p>
+	   </div>
+
+	   <!-- Buttons Section -->
+	   <div class="button-section">
+	       <a th:href="@{/users/register}" class="button">Register</a>
+	       <a th:href="@{/users/login}" class="button">Login</a>
+	   </div>
+</body>
+</html>
